@@ -1,0 +1,64 @@
+$navbar-default-bg: purple;
+$navbar-default-border: red;
+
+$navbar-default-link-color: white;
+$navbar-default-link-hover-color: $navbar-default-link-color;
+
+$navbar-default-link-hover-bg: darken($navbar-default-bg, 5%);
+$navbar-default-brand-hover-bg: $navbar-default-link-hover-bg;
+
+.nav.navbar-nav.navbar-right li a {
+    color: white;
+}
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.jumbotron {
+  background-image: asset-url('controller.jpg');
+  background-size: cover;
+  height: 300px;
+}
+
+.jumbotron h1 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.jumbotron h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.btn-xlarge {
+  background-color: purple;
+}
+
+body{
+background-color: #000000;
+}
