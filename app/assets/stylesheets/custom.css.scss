@@ -55,10 +55,60 @@ $navbar-default-brand-hover-bg: $navbar-default-link-hover-bg;
   font-weight: bold;
 }
 
+h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
 .btn-xlarge {
   background-color: purple;
 }
 
 body{
-background-color: #000000;
+background-color: black;
+}
+
+p {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #ff2323;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: purple;
+}
+
+
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: white;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
 }
