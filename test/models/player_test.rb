@@ -1,6 +1,9 @@
+require 'test_helper'
+
 class PlayerTest < ActiveSupport::TestCase
+
   def setup
-    @player = Player.new(playername: "ryan", email: "ryan@example.com")
+    @player = Player.new(playername: "ryan", email: "ryan.bagley99@gmail.com")
   end
 
   test "should be valid" do
@@ -12,7 +15,7 @@ class PlayerTest < ActiveSupport::TestCase
     assert_not @player.valid?
   end
 
-  test "name should be less than 30 characters" do
+   test "name should be less than 30 characters" do
     @player.playername = "a" * 31
     assert_not @player.valid?
   end
