@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Player < ApplicationRecord
   before_save { self.email = email.downcase }
   validates :playername, presence: true, length: { maximum: 30 }
@@ -5,4 +7,6 @@ class Player < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+
+  has_many :games
 end
