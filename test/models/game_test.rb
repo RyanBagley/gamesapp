@@ -34,5 +34,4 @@ class GameTest < ActiveSupport::TestCase
     @game.description = "a" * 501
     assert_not @game.valid?
   end
-
 end
