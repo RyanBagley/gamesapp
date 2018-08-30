@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'pages/home', to: 'pages#home'
 
   get '/games', to: 'games#index'
+  get '/games/:id', to: 'games#show', as: 'game'
 end

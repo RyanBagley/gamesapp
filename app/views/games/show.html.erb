@@ -1,0 +1,19 @@
+<%= render 'shared/page_title', title: @game.name %>
+<div class="well col-md-8 col-md-offset-2">
+  <h4 class="center description"><strong>Review: </strong></h4>
+  <hr />
+  <%= simple_format(@game.description) %>
+  <hr />
+  <div class="pull-right">
+    <p class="center">
+      <em>Played by:</em>
+    </p>
+    <p class="center">
+      <%= link_to gravatar_for(@game_user), games_path %>
+    </p>
+    <p class="center">
+      <small><%= @game.player.playername.capitalize %></small>
+      <div class="pullright"><%= time_ago_in_words(@game.created_at) %> ago</div>
+    </p>
+  </div>
+</div>
