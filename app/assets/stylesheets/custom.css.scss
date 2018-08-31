@@ -94,16 +94,10 @@ footer ul li {
   color: purple;
 }
 
-div img {
-  position:relative;
-  top: 75%;
-  left: 32%;
-  object-fit:cover;
-  padding: 10px;
+.player_info {
+  margin-top: 10px;
 }
 
-div img:hover {
-  height: 110px;
-  width: 110px;
+.colormatch a {
+  color: purple;
 }
-

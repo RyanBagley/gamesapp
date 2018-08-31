@@ -2,8 +2,8 @@ require 'test_helper'
 
 class GameTest < ActiveSupport::TestCase
   def setup
-    @player = Player.create!(playername: "ryan", email: "ryan@example.com")
-    @game = @player.games.build(name: "Call of Duty", description: "great first-person shooter")
+    @player = Player.create!(playername: "ryan", email: "ryan.bagley99@gmail.com")
+    @game = @player.games.build(name: "Fotnite", description: "Amazing battle royale game")
   end
 
   test "recipe without player should be invalid" do

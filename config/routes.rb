@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   root "pages#home"
   get 'pages/home', to: 'pages#home'
 
-  get '/games', to: 'games#index'
-  get '/games/:id', to: 'games#show', as: 'game'
+ resources :games
 end
+
+
+ get '/games', to: 'games#index'
+  get '/games/new', to: 'games#new', as: 'new_game'
+  get '/games/:id', to: 'games#show', as: 'game'
+  post '/games', to: 'games#create'

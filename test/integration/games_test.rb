@@ -27,6 +27,20 @@ class GamesTest < ActionDispatch::IntegrationTest
     assert_match @game.name, response.body
     assert_match @game.description, response.body
     assert_match @player.playername, response.body
+  end
 
+  test "create new valid game" do
+    get new_game_path
+  end
+
+  test "reject invalid game submissions" do
+    get new_game_path
+    assert_template 'games/new'
+    assert_no_difference 'Game.count' do
+      post games_path, params: { game: { name: " ", description: " " } }
+    end
+    assert_template 'game/new'
+    assert_select 'h2.panel-title'
+    assert_select 'div.panel-body'
   end
 end

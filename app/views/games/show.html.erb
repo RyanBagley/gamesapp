@@ -9,7 +9,7 @@
       <em>Played by:</em>
     </p>
     <p class="center">
-      <%= link_to gravatar_for(@game_user), games_path %>
+      <%= link_to gravatar_for(@game.player), games_path(@game.player) %>
     </p>
     <p class="center">
       <small><%= @game.player.playername.capitalize %></small>
