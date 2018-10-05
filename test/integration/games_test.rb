@@ -31,6 +31,15 @@ class GamesTest < ActionDispatch::IntegrationTest
 
   test "create new valid game" do
     get new_game_path
+    assert_template 'games/new'
+    name_of_game = "Battlefield"
+    description_of_game = "Online First-person shooter"
+    assert_difference 'Game.count', 1 do
+      post games_path, params: { game: { name: name_of_game, description: description_of_game}}
+    end
+    follow_redirect!
+    assert_match name_of_game.capitalize, response.body
+    assert_match description_of_game, response.body
   end
 
   test "reject invalid game submissions" do
@@ -39,7 +48,7 @@ class GamesTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Game.count' do
       post games_path, params: { game: { name: " ", description: " " } }
     end
-    assert_template 'game/new'
+    assert_template 'games/new'
     assert_select 'h2.panel-title'
     assert_select 'div.panel-body'
   end

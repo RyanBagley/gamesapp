@@ -8,7 +8,3 @@ Rails.application.routes.draw do
 end
 
 
- get '/games', to: 'games#index'
-  get '/games/new', to: 'games#new', as: 'new_game'
-  get '/games/:id', to: 'games#show', as: 'game'
-  post '/games', to: 'games#create'

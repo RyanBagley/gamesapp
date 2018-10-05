@@ -14,4 +14,20 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
+  def create
+    @game = Game.new(game_params)
+    @game.player = Player.first
+    if @game.save
+      flash[:success] = "Game was added successfully!"
+      redirect_to game_path(@game)
+    else
+      render 'new'
+    end
+  end
+
+  private
+
+    def game_params
+      params.require(:game).permit(:name, :description)
+    end
 end
