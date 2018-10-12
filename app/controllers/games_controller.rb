@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 class GamesController < ApplicationController
+  before_action :set_game, only: [:show, :edit, :update]
 
   def index
     @games = Game.all
   end
 
   def show
-    @game = Game.find(params[:id])
+
   end
 
   def new
@@ -26,11 +27,10 @@ class GamesController < ApplicationController
   end
 
   def edit
-    @game = Game.find(params[:id])
+
   end
 
   def update
-    @game = Game.find(params[:id])
     if @game.update(game_params)
       flash[:success] = "Game was updated successfully!"
       redirect_to game_path(@game)
@@ -46,6 +46,10 @@ class GamesController < ApplicationController
   end
 
   private
+
+    def set_game
+      @game = Game.find(params[:id])
+    end
 
     def game_params
       params.require(:game).permit(:name, :description)

@@ -29,6 +29,7 @@ class GamesTest < ActionDispatch::IntegrationTest
     assert_match @player.playername, response.body
     assert_select 'a[href=?]', edit_recipe_path(@game), text: "Edit this recipe"
     assert_select 'a[href=?]', game_path(@game), text: "Delete this game"
+    assert_select 'a[href=?]', games_path, text: "Return to games listing"
   end
 
   test "create new valid game" do
