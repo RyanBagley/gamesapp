@@ -2,7 +2,8 @@ require 'test_helper'
 
 class GameTest < ActiveSupport::TestCase
   def setup
-    @player = Player.create!(playername: "ryan", email: "ryan.bagley99@gmail.com")
+    @player = Player.create!(playername: "ryan", email: "ryan.bagley99@gmail.com",
+                            password: "password", password_confirmation: "password")
     @game = @player.games.build(name: "Fotnite", description: "Amazing battle royale game")
   end
 

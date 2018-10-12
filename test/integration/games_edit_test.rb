@@ -2,7 +2,8 @@ require 'test_helper'
 
 class GamesEditTest < ActionDispatch::IntegrationTest
   def setup
-    @player = Player.create!(playername: "ryan", email: "ryan@example.com")
+    @player = Player.create!(playername: "ryan", email: "ryan@example.com",
+                            password: "password", password_confirmation: "password")
     @game = Game.create(name: "Fortnite", description: "Great battle royale game", player: @player)
   end
 
@@ -20,7 +21,7 @@ class GamesEditTest < ActionDispatch::IntegrationTest
     assert_template 'games/edit'
     updated_name = "updated game name"
     updated_description = "updated description"
-    path game_path(@game), params: { game: { name: updated_name, description: updated_description } }
+    patch game_path(@game), params: { game: { name: updated_name, description: updated_description } }
     assert_redirected_to @game
     assert_not flash.empty?
     @game.reload

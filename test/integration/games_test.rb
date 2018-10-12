@@ -3,7 +3,8 @@ require 'test_helper'
 class GamesTest < ActionDispatch::IntegrationTest
 
   def setup
-    @player = Player.create!(playername: "ryan", email: "ryan@example.com")
+    @player = Player.create!(playername: "ryan", email: "ryan@example.com",
+                            password: "password", password_confirmation: "password")
     @game = Game.create(name: "Fortnite", description: "Great battle royale game", player: @player)
     @game2 = @player.games.build(name: "Fifa", description: "Great football game")
     @game2.save
@@ -27,7 +28,7 @@ class GamesTest < ActionDispatch::IntegrationTest
     assert_match @game.name, response.body
     assert_match @game.description, response.body
     assert_match @player.playername, response.body
-    assert_select 'a[href=?]', edit_recipe_path(@game), text: "Edit this recipe"
+    assert_select 'a[href=?]', edit_game_path(@game), text: "Edit this game"
     assert_select 'a[href=?]', game_path(@game), text: "Delete this game"
     assert_select 'a[href=?]', games_path, text: "Return to games listing"
   end

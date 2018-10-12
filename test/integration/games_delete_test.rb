@@ -2,7 +2,8 @@ require 'test_helper'
 
 class GamesDeleteTest < ActionDispatch::IntegrationTest
   def setup
-    @player = Player.create!(playername: "ryan", email: "ryan@example.com")
+    @player = Player.create!(playername: "ryan", email: "ryan@example.com",
+                            password: "password", password_confirmation: "password")
     @game = Game.create(name: "Fortnite", description: "Great battle royale game", player: @player)
   end
 

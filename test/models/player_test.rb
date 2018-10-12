@@ -3,7 +3,8 @@ require 'test_helper'
 class PlayerTest < ActiveSupport::TestCase
 
   def setup
-    @player = Player.new(playername: "ryan", email: "ryan.bagley99@gmail.com")
+    @player = Player.new(playername: "ryan", email: "ryan.bagley99@gmail.com",
+                        password: "password", password_confirmation: "password")
   end
 
   test "should be valid" do
@@ -58,5 +59,15 @@ class PlayerTest < ActiveSupport::TestCase
     @player.email = mixed_email
     @player.save
     assert_equal mixed_email.downcase, @player.reload.email
+  end
+
+  test "password should be present" do
+    @player.password = @player.password_confirmation = " "
+    assert_not @player.valid?
+  end
+
+  test "password should be at least 5 characters" do
+    @player.password = @player.password_confirmation = "x" * 4
+    assert_not @player.valid?
   end
 end
