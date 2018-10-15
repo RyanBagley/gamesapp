@@ -1,1 +1,10 @@
-<%= render 'shared/page_title', title: "Your Profile" %>
+<%= render 'shared/page_title', title: "Player #{@player.playername}'s Profile" %>
+
+<div class = "row" >
+  <div class="col-md-4 col-md-offset-4 center">
+    <%= gravatar_for @player, size: 150 %>
+  </div>
+</div>
+
+<h4 align="center"><%= @player.playername %>'s games</h4>
+<%= render 'games/game', obj: @player.games %>
