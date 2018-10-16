@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
 
   def index
-    @players = Player.all
+    @players = Player.paginate(page: params[:page], per_page: 5)
   end
 
 
@@ -21,6 +21,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    @player_games = @player.games.paginate(page: params[:page], per_page: 5)
   end
 
   def edit

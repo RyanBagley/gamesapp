@@ -1,3 +1,9 @@
 <%= render 'shared/page_title', title: "showing all games" %>
 
-<%= render 'games', obj: @games %>
+<div align="center">
+  <%= will_paginate %>
+</div>
+<%= render 'game', obj: @games %>
+<div align="center">
+  <%= will_paginate %>
+</div>

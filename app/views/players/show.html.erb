@@ -7,4 +7,10 @@
 </div>
 
 <h4 align="center"><%= @player.playername %>'s games</h4>
-<%= render 'games/game', obj: @player.games %>
+<div align="center">
+  <%= will_paginate @player_games%>
+</div>
+<%= render 'games/game', obj: @player_games %>
+<div align="center">
+  <%= will_paginate @player_games%>
+</div>
