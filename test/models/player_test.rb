@@ -70,4 +70,12 @@ class PlayerTest < ActiveSupport::TestCase
     @player.password = @player.password_confirmation = "x" * 4
     assert_not @player.valid?
   end
+
+  test "associated games should be destroyed" do
+    @player.save
+    @player.games.create!(name: "testing destroy", description: "testing destroy function")
+    assert_difference 'Game.count', -1 do
+      @player.destroy
+    end
+  end
 end

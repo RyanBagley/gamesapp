@@ -14,4 +14,15 @@ class PlayersListingTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", player_path(@player), text: @player.playername.capitalize
     assert_select "a[href=?]", player_path(@player2), text: @player2.playername.capitalize
   end
+
+  test "should delete player" do
+    get players_path
+    assert_template 'players/index'
+    assert_difference 'Player.count', -1 do
+      delete player_path(@player2)
+    end
+    assert_redirected_to players_path
+    assert_not flash.empty?
+  end
+
 end

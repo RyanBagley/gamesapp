@@ -9,6 +9,8 @@
           <li><%= link_to gravatar_for(player), player_path(player)%></li>
           <li class="player-title"><%= link_to player.playername.capitalize, player_path(player) %></li>
           <li><small><%= pluralize(player.games.count, "game") if player.games %></small></li>
+          <li><%= link_to "Delete this player", player_path(player), method: :delete,
+                  data: {confirm: "Are you sure you want to delete this player and all associated games?"} %></li>
         </div>
       </div>
     </ul>
