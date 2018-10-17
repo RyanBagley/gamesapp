@@ -23,6 +23,7 @@ class GamesTest < ActionDispatch::IntegrationTest
   end
 
   test "should get games show" do
+    sign_in_as(@player, "password")
     get game_path(@game)
     assert_template 'games/show'
     assert_match @game.name, response.body
@@ -34,6 +35,7 @@ class GamesTest < ActionDispatch::IntegrationTest
   end
 
   test "create new valid game" do
+    sign_in_as(@player, "password")
     get new_game_path
     assert_template 'games/new'
     name_of_game = "Battlefield"

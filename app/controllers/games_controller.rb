@@ -2,6 +2,8 @@
 
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @games = Game.paginate(page: params[:page], per_page: 5)
@@ -17,7 +19,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @game.player = Player.first
+    @game.player = current_player
     if @game.save
       flash[:success] = "Game was added successfully!"
       redirect_to game_path(@game)
